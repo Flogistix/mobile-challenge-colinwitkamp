@@ -17,3 +17,23 @@
 * Build instructions for iOS
 * Overview of step for making it Android-ready
 * General end-user instructions for using the app 
+
+## How to run
+
+### Install Dependencies
+
+```
+$ yarn
+```
+
+### iOS
+
+```
+$ npm run ios
+```
+
+### Android
+
+```
+$ npm run android
+```
