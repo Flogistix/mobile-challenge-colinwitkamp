@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import AS from "@react-native-async-storage/async-storage";
 
 export const meteoriteSlice = createSlice({
   name: "meteorite",
@@ -23,15 +24,17 @@ export const meteoriteSlice = createSlice({
       });
     },
     setMeteorLike: (state, action) => {
-      console.info('setMeteorLike', action)
+      console.info("setMeteorLike", action);
       const { id, like } = action.payload;
       state.likes[id] = like;
+      AS.setItem('likes', JSON.stringify(state.likes))
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setMeteorites, filterMeteorites, setMeteorLike } = meteoriteSlice.actions;
+export const { setMeteorites, filterMeteorites, setMeteorLike } =
+  meteoriteSlice.actions;
 
 export default meteoriteSlice.reducer;
 
