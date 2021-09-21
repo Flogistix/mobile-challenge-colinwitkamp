@@ -28,7 +28,12 @@ $ npm run android
 ## Usage
 
 ![screenshot](https://i.ibb.co/CbrcfXx/Simulator-Screen-Shot-i-Phone-11-2021-09-21-at-09-44-07.png)
+- Display format: 
 
+  ```
+    {id}. {recclass} - {name}
+    {year} - mass: {mass} loc: {lat, lng}
+  ```
 - Search by id or name
 - Click the heart icon for every meteoride to like or unlike.
 - The meteorides list(including the liked ones) is saved and loaded automatically. 
