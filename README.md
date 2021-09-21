@@ -26,8 +26,7 @@ $ npm run android
 ```
 
 ## Usage
-
-![screenshot](https://i.ibb.co/CbrcfXx/Simulator-Screen-Shot-i-Phone-11-2021-09-21-at-09-44-07.png)
+![screenshot](https://i.ibb.co/k11Bqyw/Screen-Shot-2021-09-21-at-10-11-32-AM.png)
 - Display format: 
 
   ```
