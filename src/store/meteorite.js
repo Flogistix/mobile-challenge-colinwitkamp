@@ -57,8 +57,9 @@ export const fetchMeteorites = () => async (dispatch) => {
       
       const strLikes = await AS.getItem("likes");
       likes = JSON.parse(strLikes)
-      dispatch(setMeteorLikes(likes));
-      
+      if (likes) {
+        dispatch(setMeteorLikes(likes));
+      }
     } catch (e) {}
     const res = await fetch("https://data.nasa.gov/resource/y77d-th95.json");
     data = await res.json();

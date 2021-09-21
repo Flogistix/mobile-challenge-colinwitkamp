@@ -57,8 +57,8 @@ function App() {
                   {item.id}. {item.recclass} - {item.name}
                 </Text>
                 <Text style={styles.desc}>
-                  {new Date(item.year).getFullYear()}: {item.mass} - {item.fall}{" "}
-                  , ({item.reclat}, {item.reclong})
+                  {new Date(item.year).getFullYear()} - mass: {item.mass}
+                  , loc: ({item.reclat}, {item.reclong})
                 </Text>
               </View>
               <View style={styles.like}>
@@ -135,6 +135,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
   },
+  info: {
+    flex: 1
+  }
 });
 
 export default () => {
