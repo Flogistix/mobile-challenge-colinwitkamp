@@ -27,13 +27,16 @@ export const meteoriteSlice = createSlice({
       console.info("setMeteorLike", action);
       const { id, like } = action.payload;
       state.likes[id] = like;
-      AS.setItem('likes', JSON.stringify(state.likes))
+      AS.setItem("likes", JSON.stringify(state.likes));
     },
+    setMeteorLikes: (state, action) => {
+      state.likes = action.payload
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setMeteorites, filterMeteorites, setMeteorLike } =
+export const { setMeteorites, filterMeteorites, setMeteorLike, setMeteorLikes } =
   meteoriteSlice.actions;
 
 export default meteoriteSlice.reducer;
@@ -43,10 +46,25 @@ export const selectMeteoritesLikes = (state) => state.meteorite.likes;
 
 export const fetchMeteorites = () => async (dispatch) => {
   try {
+    // Load from storage first
+    let data = [];
+    try {
+      const strData = await AS.getItem("meteorites");
+      data = JSON.parse(strData);
+      if (Array.isArray(data)) {
+        dispatch(setMeteorites(data));
+      }
+      
+      const strLikes = await AS.getItem("likes");
+      likes = JSON.parse(strLikes)
+      dispatch(setMeteorLikes(likes));
+      
+    } catch (e) {}
     const res = await fetch("https://data.nasa.gov/resource/y77d-th95.json");
-    const data = await res.json();
+    data = await res.json();
     console.info("Meteorites fetched:", data);
     dispatch(setMeteorites(data));
+    AS.setItem("meteorites", JSON.stringify(data));
   } catch (e) {
     console.error("fetchMeteorites - ", e);
   }
