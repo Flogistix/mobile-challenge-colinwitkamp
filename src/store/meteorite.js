@@ -23,6 +23,7 @@ export const meteoriteSlice = createSlice({
       });
     },
     setMeteorLike: (state, action) => {
+      console.info('setMeteorLike', action)
       const { id, like } = action.payload;
       state.likes[id] = like;
     },
@@ -30,11 +31,12 @@ export const meteoriteSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setMeteorites, filterMeteorites } = meteoriteSlice.actions;
+export const { setMeteorites, filterMeteorites, setMeteorLike } = meteoriteSlice.actions;
 
 export default meteoriteSlice.reducer;
 
 export const selectMeteorites = (state) => state.meteorite.filtered;
+export const selectMeteoritesLikes = (state) => state.meteorite.likes;
 
 export const fetchMeteorites = () => async (dispatch) => {
   try {
