@@ -39,7 +39,7 @@ function App() {
       <Text style={styles.title}>Meteorites</Text>
       <TextInput
         style={styles.search}
-        placeholder="Search here"
+        placeholder="Search here by id or name"
         value={search}
         onChangeText={(txt) => {
           setSeartch(txt);
