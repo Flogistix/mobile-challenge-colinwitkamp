@@ -33,10 +33,11 @@ $ npm run android
     {id}. {recclass} - {name}
     {year} - mass: {mass} loc: {lat, lng}
   ```
+- Scroll down/up the list
 - Search by id or name
 - Click the heart icon for every meteoride to like or unlike.
 - The meteorides list(including the liked ones) is saved and loaded automatically. 
-
+  
 ## Background
 * We have been asked to build a native mobile application that easily allows user to visualize, filter, and understand trends from the Earth Meteorite Landing dataset from NASA:
   * Overview of dataset: https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh
