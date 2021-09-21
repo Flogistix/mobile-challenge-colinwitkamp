@@ -11,15 +11,21 @@ export const meteoriteSlice = createSlice({
       state.data = action.payload;
       state.filtered = action.payload;
     },
+    filterMeteorites: (state, action) => {
+      const keyword = action.payload;
+      state.filtered = state.data.filter(({ name, id}) => {
+        return id.toLowercase().indexOf(keyword) > - 1 || name.toLowercase().indexOf(keyword)
+      })
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setMeteorites } = meteoriteSlice.actions;
+export const { setMeteorites, filterMeteorites } = meteoriteSlice.actions;
 
 export default meteoriteSlice.reducer;
 
-export const selectMeteorites = state => state.filtered;
+export const selectMeteorites = state => state.meteorite.filtered;
 
 export const fetchMeteorites = () => async (dispatch) => {
   try {
