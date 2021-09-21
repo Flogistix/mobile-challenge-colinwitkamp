@@ -4,7 +4,8 @@ export const meteoriteSlice = createSlice({
   name: "meteorite",
   initialState: {
     data: [],
-    filtered: []
+    filtered: [],
+    likes: {}, // id: bool
   },
   reducers: {
     setMeteorites: (state, action) => {
@@ -12,11 +13,19 @@ export const meteoriteSlice = createSlice({
       state.filtered = action.payload;
     },
     filterMeteorites: (state, action) => {
-      const keyword = action.payload;
-      state.filtered = state.data.filter(({ name, id}) => {
-        return id.toLowercase().indexOf(keyword) > - 1 || name.toLowercase().indexOf(keyword)
-      })
-    }
+      console.info("filterMeteorites - ", action);
+      const keyword = action.payload.toLowerCase();
+      state.filtered = state.data.filter(({ name, id }) => {
+        return (
+          id.toLowerCase().indexOf(keyword) > -1 ||
+          name.toLowerCase().indexOf(keyword) > -1
+        );
+      });
+    },
+    setMeteorLike: (state, action) => {
+      const { id, like } = action.payload;
+      state.likes[id] = like;
+    },
   },
 });
 
@@ -25,15 +34,15 @@ export const { setMeteorites, filterMeteorites } = meteoriteSlice.actions;
 
 export default meteoriteSlice.reducer;
 
-export const selectMeteorites = state => state.meteorite.filtered;
+export const selectMeteorites = (state) => state.meteorite.filtered;
 
 export const fetchMeteorites = () => async (dispatch) => {
   try {
     const res = await fetch("https://data.nasa.gov/resource/y77d-th95.json");
     const data = await res.json();
-    console.info('Meteorites fetched:', data)
-    dispatch(setMeteorites(data))
+    console.info("Meteorites fetched:", data);
+    dispatch(setMeteorites(data));
   } catch (e) {
-    console.error('fetchMeteorites - ', e)
+    console.error("fetchMeteorites - ", e);
   }
 };
