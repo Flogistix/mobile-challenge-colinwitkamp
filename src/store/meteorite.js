@@ -21,6 +21,7 @@ export const fetchMeteorites = (dispatch) => async () => {
   try {
     const res = await fetch("https://data.nasa.gov/resource/y77d-th95.json");
     const data = await res.json();
+    console.info('Meteorites fetched:', data)
     dispatch(setMeteorites(data))
   } catch (e) {}
 };
