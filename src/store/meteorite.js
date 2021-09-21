@@ -17,11 +17,15 @@ export const { setMeteorites } = meteoriteSlice.actions;
 
 export default meteoriteSlice.reducer;
 
-export const fetchMeteorites = (dispatch) => async () => {
+export const selectMeteorites = state => state.meteorite.data;
+
+export const fetchMeteorites = () => async (dispatch) => {
   try {
     const res = await fetch("https://data.nasa.gov/resource/y77d-th95.json");
     const data = await res.json();
     console.info('Meteorites fetched:', data)
     dispatch(setMeteorites(data))
-  } catch (e) {}
+  } catch (e) {
+    console.error('fetchMeteorites - ', e)
+  }
 };
