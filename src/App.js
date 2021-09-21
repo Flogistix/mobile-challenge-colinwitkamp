@@ -9,8 +9,9 @@ import { fetchMeteorites, selectMeteorites } from "./store/meteorite";
 import { FlatList } from "react-native-gesture-handler";
 
 function App() {
+  const [search, setSeartch] = useState('')
   const dispatch = useDispatch();
-  const meteorites = useSelector(selectMeteorites);
+  const meteorites = useSelector(selectMeteorites(search));
   
   useEffect(() => {
     dispatch(fetchMeteorites());
@@ -20,7 +21,9 @@ function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <Text style={styles.title}>Meteorites</Text>
-      <TextInput style={styles.search} placeholder="Search here"/>
+      <TextInput style={styles.search} placeholder="Search here" value={search} onChangeText={(txt) => {
+        setSeartch(txt)
+      }}/>
       <FlatList
         style={styles.list}
         data={meteorites}
