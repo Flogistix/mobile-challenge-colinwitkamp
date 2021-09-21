@@ -4,10 +4,12 @@ export const meteoriteSlice = createSlice({
   name: "meteorite",
   initialState: {
     data: [],
+    filtered: []
   },
   reducers: {
     setMeteorites: (state, action) => {
       state.data = action.payload;
+      state.filtered = action.payload;
     },
   },
 });
@@ -17,7 +19,11 @@ export const { setMeteorites } = meteoriteSlice.actions;
 
 export default meteoriteSlice.reducer;
 
-export const selectMeteorites = state => state.meteorite.data;
+export const selectMeteorites = (value) => state => state.meteorite.data.filter(({
+  name, id
+}) => {
+
+});
 
 export const fetchMeteorites = () => async (dispatch) => {
   try {
