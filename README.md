@@ -1,5 +1,8 @@
 # Flogistix Mobile Challenge
 
+```
+React Native, Expo, Redux, React-Redux, Redux Toolkit, AsyncStorage
+```
 ## How to run
 
 ### Install Dependencies
