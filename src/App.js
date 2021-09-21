@@ -32,7 +32,7 @@ function App() {
                 <Text style={styles.desc}>{item.fall} - {new Date(item.year).getFullYear()}</Text>
               </View>
               <View style={styles.like}>
-                <Icon name="heart" color={ item.liked ? "#e00" : '#ddd'}/>
+                <Icon name="heart" color={ item.liked ? "#e00" : '#ddd'} size={24}/>
               </View>
             </View>
           );
