@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Meteorite",
+    "slug": "Meteorite",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "Meteorite"
+}

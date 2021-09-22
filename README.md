@@ -1,5 +1,43 @@
 # Flogistix Mobile Challenge
 
+```
+React Native, Expo, Redux, React-Redux, Redux Toolkit, AsyncStorage
+```
+## How to run
+
+### Install Dependencies
+
+```
+$ yarn
+```
+
+### iOS
+
+```
+$ cd ios && pod install
+$ cd ..
+$ npm run ios
+```
+
+### Android
+
+```
+$ npm run android
+```
+
+## Usage
+![screenshot](https://i.ibb.co/k11Bqyw/Screen-Shot-2021-09-21-at-10-11-32-AM.png)
+- Display format: 
+
+  ```
+    {id}. {recclass} - {name}
+    {year} - mass: {mass} loc: {lat, lng}
+  ```
+- Scroll down/up the list
+- Search by id or name
+- Click the heart icon for every meteoride to like or unlike.
+- The meteorides list(including the liked ones) is saved and loaded automatically. 
+  
 ## Background
 * We have been asked to build a native mobile application that easily allows user to visualize, filter, and understand trends from the Earth Meteorite Landing dataset from NASA:
   * Overview of dataset: https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh
